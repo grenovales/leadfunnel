@@ -17,8 +17,13 @@ jobs:
         run: flyctl deploy --remote-only
         env:
           FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
+      - name: Check Fly.io App Status
+        env:
+          FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
+        run: |
+          flyctl status || exit 1
       - name: Run Database Migrations
-        if: success() # Only run if the deployment succeeds
+        if: success() # Only run if the app is healthy
         env:
           FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
         run: |
@@ -26,4 +31,5 @@ jobs:
           if [ $? -ne 0 ]; then
             echo "Database migration failed"
             exit 1
-          fi          
+          fi
+               
