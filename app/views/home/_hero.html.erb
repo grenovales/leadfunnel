@@ -1,18 +1,60 @@
-<section class="hero min-h-screen w-full relative">
-  <div class="h-full w-full bg-[url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')] bg-cover bg-center"></div>  
-  <div class="absolute inset-0 bg-gradient-to-r from-gray-900/95 to-gray-800/85"></div>
-  <div class="pt-16 hero-content text-neutral-content container mx-auto px-4">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center max-w-6xl mx-auto">
-      <div class="text-left">
-        <h1 class="mb-5 text-5xl font-bold">Defend the Digital Frontier</h1>
-        <p class="mb-5 text-xl">Master the art of cybersecurity and become the guardian of tomorrow's digital landscape. Your journey to becoming an elite cyber defender starts here.</p>
-        <button class="btn btn-primary bg-green-500 hover:bg-green-400 text-white btn-lg h-14">Request More Info</button>
-      </div>
-      <div class="hidden lg:block relative mx-auto">
-        <div class="bg-white rounded-lg shadow-2xl">
-          
+<section class="hero min-h-screen w-full relative bg-[url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')] bg-cover bg-center">
+  <div class="w-full h-full flex pt-16">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-0 w-full h-full">
+      <div class="p-12 bg-gradient-to-b from-gray-500 to-white/90 lg:bg-gradient-to-r lg:from-gray-500 lg:to-white/90 flex items-center justify-center">
+        <div class="space-y-8">
+          <h1 class="text-5xl font-bold text-black">Defend the Digital Frontier</h1>
+          <p class="text-xl text-gray-700">Master the art of cybersecurity and become the guardian of tomorrow's digital landscape. Your journey to becoming an elite cyber defender starts here.</p>
         </div>
-        <%= image_tag 'skunkworksu.webp', alt: 'Skunkworks U Logo', class: 'h-[300px]' %>
+      </div>
+      <div class="bg-white/90 p-12 h-full flex items-center justify-center">
+        <form hx-post="/enroll" hx-target="#enrollment-response" class="space-y-4 w-full max-w-md">
+          <div class="grid grid-cols-2 gap-4">
+            <div>
+              <label class="label">
+                <span class="label-text">First Name *</span>
+              </label>
+              <input type="text" name="first_name" required class="input input-bordered w-full" />
+            </div>
+            <div>
+              <label class="label">
+                <span class="label-text">Last Name *</span>
+              </label>
+              <input type="text" name="last_name" required class="input input-bordered w-full" />
+            </div>
+          </div>
+          
+          <div>
+            <label class="label">
+              <span class="label-text">Email *</span>
+            </label>
+            <input type="email" name="email" required class="input input-bordered w-full" />
+          </div>
+          
+          <div>
+            <label class="label">
+              <span class="label-text">Phone *</span>
+            </label>
+            <input type="tel" name="phone" required class="input input-bordered w-full" />
+          </div>
+          
+          <div>
+            <label class="label">
+              <span class="label-text">Zip Code *</span>
+            </label>
+            <input type="text" name="zip_code" required class="input input-bordered w-full" />
+          </div>
+          
+          <div class="divider bg-green-500 h-1"></div>
+          
+          <p class="text-sm text-gray-600">
+            By submitting this form, you agree that you have read, understood, and agree to the Terms & Conditions, including receiving automated calls, text messages, and mail, both electronic and physical, for any purpose. I understand that such consent is not a condition of any service and that I may opt out at any time.
+          </p>
+          
+          <button type="submit" class="btn bg-green-500 hover:bg-green-400 text-white w-full">Enroll Now</button>
+          
+          <div id="enrollment-response"></div>
+        </form>
       </div>
     </div>
   </div>
